@@ -1,9 +1,3 @@
-/*
-Tentative de simulation de gravite avec des valeurs non-arbitraires
- 1 tick = 1s
- 1 pixel = 100 Km
- */
-
 class Astre {
   // Km
   PVectorD pos;
@@ -34,13 +28,11 @@ class Astre {
   }
 
   void update(float deltaTime) {
-
     // vel : m/s
     // pos lm
     this.pos.x += this.vel.x * deltaTime * pow(10, -3);
     this.pos.y += this.vel.y * deltaTime * pow(10, -3);
 
-    // println(this.pos.y, this.vel.y * deltaTime * pow(10,-3), this.pos.y + this.vel.y * deltaTime * pow(10,-3));
 
     // acc = m/s²
     // vel = m/s
@@ -77,9 +69,7 @@ class Astre {
       );
 
     stroke(0, 255, 0);
-
-    //text(round(this.vel.x*10)/10f + " " + round( this.vel.y*10)/10f, KmToPx(this.pos.x), KmToPx(this.pos.y));
-
+    
     line(KmToPx(this.pos.x), KmToPx(this.pos.y), KmToPx(this.pos.x + (this.vel.x / 10)), KmToPx(this.pos.y + (this.vel.y / 10)));
   }
 

@@ -1,13 +1,3 @@
-// void EARTH_MOON(ArrayList<Astre> planets) {
-//   Astre earth = new Astre(0, 0, 5.97217 * pow(10, 24), 6371);
-//   earth.setVel(0 * pow(10, 3), 0);
-//   planets.add(earth);
-
-//   float dist = 6371 + 0.4055 * pow(10, 6); // Km
-//   Astre moon = new Astre(0, -dist, 0.07346 * pow(10, 24), 1737.4);
-//   moon.setVel(1.082 * pow(10, 3), 0);
-//   planets.add(moon);
-// }
 
 ArrayList<Situation> situations = new ArrayList<Situation>();
 class Situation {
@@ -32,6 +22,7 @@ class Simulation {
   // Config
   float deltaTime = 0.1; // s
   float iter = 100;
+  
   // ISS = 92.9 * 60
   // moon = 2360591.5104
   double endTime = 0; // s

@@ -17,7 +17,7 @@ double dabs(double n) {
 }
 
 
-
+// Je sais plus d'ou
 double powD(double base, int exp) {
   if (exp == 0)
     return 1;

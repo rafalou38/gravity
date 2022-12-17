@@ -13,16 +13,10 @@ class UI {
     loader = new Loader();
     stats = new Stats();
 
-    // LOADER -> Choose simulation
-
-
-    // Display stats of the current simulation
     Accordion accordion = cp5.addAccordion("acc")
       .setPosition(0, 0)
       .setWidth(200)
-      // .setHeight(height)
       .setCollapseMode(Accordion.MULTI)
-      // .setMinItemHeight(200)
       .addItem(loader.container)
       .addItem(stats.container)
       .open(0,1);
@@ -56,16 +50,6 @@ class UI {
         public void controlEvent(CallbackEvent theEvent) {
           sim.iter = itsl.getValue();
           sim.deltaTime = dtsl.getValue();
-          // switch(theEvent.getAction()) {
-          //   case(ControlP5.ACTION_ENTER):
-            
-          //   break;
-          //   case(ControlP5.ACTION_LEAVE):
-          //   case(ControlP5.ACTION_RELEASEDOUTSIDE):
-          //   info.n = 0;
-          //   cursor(ARROW);
-          //   break;
-          // }
         }
       };
       itsl = cp5.addSlider("it/f")
@@ -121,7 +105,6 @@ frameRate,
 }
 
 void dropdown(int n) {
-  /* request the selected item based on index n */
   Situation sit = Situation.class.cast(cp5.get(ScrollableList.class, "dropdown").getItem(n).get("value"));
 
   sim.load(sit);
