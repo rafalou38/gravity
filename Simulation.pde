@@ -22,7 +22,7 @@ class Simulation {
   // Config
   float deltaTime = 0.1; // s
   float iter = 100;
-  
+
   // ISS = 92.9 * 60
   // moon = 2360591.5104
   double endTime = 0; // s
@@ -58,11 +58,15 @@ class Simulation {
     background(30, 30, 30);
     elapsed = 0;
     planets.clear();
-    active = true;
+    active = false;
   }
 
   void update() {
-    if (!active) return;
+    if (!active) {
+      fill(200, 200, 255);
+      text("SIMULTATION PAUSED", width / 2, 20);
+      return;
+    }
 
     for (int i = 0; i < iter; i++) {
       // Gravitate planets O(n²)
@@ -89,11 +93,10 @@ class Simulation {
         active = false;
         break;
       }
+
+      ui.stats.update(deltaTime, iter, elapsed, scale);
     }
-
-    ui.stats.update(deltaTime, iter, elapsed, scale);
   }
-
   void draw() {
     noStroke();
     fill(30, 30, 30, 10);

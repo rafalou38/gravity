@@ -79,8 +79,6 @@ class UI {
         .setBackgroundHeight(150);
 
       lbl = cp5.addTextlabel("label")
-
-        //   .setPosition(100, 50)
         .moveTo(container);
     }
 
