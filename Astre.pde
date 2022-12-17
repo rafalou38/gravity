@@ -24,21 +24,23 @@ class Astre {
     this.mass = mass;
     this.pos = new PVectorD(x, y);
     this.acc = new PVectorD(0, 0);
+    this.vel =  new PVectorD(0, 0);
   }
 
   // Km/s
-  void setVel(double x, double y) {
+  Astre setVel(double x, double y) {
     this.vel = new PVectorD(x, y);
+    return this;
   }
 
-  void update() {
-    
+  void update(float deltaTime) {
+
     // vel : m/s
     // pos lm
-    this.pos.x += this.vel.x * deltaTime * pow(10,-3);
-    this.pos.y += this.vel.y * deltaTime * pow(10,-3);
-    
-   // println(this.pos.y, this.vel.y * deltaTime * pow(10,-3), this.pos.y + this.vel.y * deltaTime * pow(10,-3));
+    this.pos.x += this.vel.x * deltaTime * pow(10, -3);
+    this.pos.y += this.vel.y * deltaTime * pow(10, -3);
+
+    // println(this.pos.y, this.vel.y * deltaTime * pow(10,-3), this.pos.y + this.vel.y * deltaTime * pow(10,-3));
 
     // acc = m/s²
     // vel = m/s
@@ -75,9 +77,16 @@ class Astre {
       );
 
     stroke(0, 255, 0);
-    
+
     //text(round(this.vel.x*10)/10f + " " + round( this.vel.y*10)/10f, KmToPx(this.pos.x), KmToPx(this.pos.y));
-    
+
     line(KmToPx(this.pos.x), KmToPx(this.pos.y), KmToPx(this.pos.x + (this.vel.x / 10)), KmToPx(this.pos.y + (this.vel.y / 10)));
+  }
+
+  Astre copy() {
+    Astre copied = new Astre(pos.x, pos.y, mass, radius);
+    copied.acc.set(acc);
+    copied.vel.set(vel);
+    return copied;
   }
 }
